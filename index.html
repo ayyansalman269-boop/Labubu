@@ -1,275 +1,315 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>From Wahib to Laiba ❤️</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>For Laiba Rizwan 💖</title>
   <style>
-    :root {
-      --bg-cream: #fffafb;
-      --soft-pink: #fde8ed;
-      --card-white: #ffffff;
-      --accent-rose: #ff4b72;
-      --deep-rose: #e62e5c;
-      --text-dark: #2d2326;
-      --text-muted: #7d6e73;
-      --shadow: 0 10px 30px rgba(255, 75, 114, 0.12);
-    }
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;700&display=swap');
 
-    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
     body {
-      background-color: var(--bg-cream);
-      color: var(--text-dark);
-      min-height: 100vh;
+      background-color: #fce4ec;
+      background-image: radial-gradient(#f8bbd0 15%, transparent 16%), radial-gradient(#f8bbd0 15%, transparent 16%);
+      background-size: 60px 60px;
+      background-position: 0 0, 30px 30px;
+      font-family: 'Quicksand', sans-serif;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
-      padding: 1.5rem;
-      position: relative;
-      overflow-x: hidden;
-    }
-
-    /* Floating Background */
-    .heart-bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 0;
+      align-items: center;
+      min-height: 100vh;
       overflow: hidden;
+      position: relative;
     }
 
-    .floating-heart {
+    /* Floating background hearts */
+    .bg-heart {
       position: absolute;
-      bottom: -100px;
-      font-size: 1.5rem;
+      color: #ff80ab;
+      font-size: 20px;
+      animation: floatUp 6s linear infinite;
       opacity: 0.6;
-      animation: floatUp 8s linear infinite;
+      pointer-events: none;
     }
 
     @keyframes floatUp {
-      0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
-      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+      0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+      50% { opacity: 0.7; }
+      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
     }
 
-    /* Main Card Layout */
-    .wrapper {
+    /* Main Container Card */
+    .card-container {
+      background: #fff0f5;
+      border: 4px dashed #ffb6c1;
+      border-radius: 24px;
+      padding: 30px;
+      width: 90%;
+      max-width: 550px;
+      box-shadow: 0 10px 25px rgba(255, 105, 180, 0.2);
+      text-align: center;
       position: relative;
       z-index: 10;
-      width: 100%;
-      max-width: 480px;
+      min-height: 380px;
       display: flex;
       flex-direction: column;
-      gap: 1.5rem;
-    }
-
-    .header-card {
-      background: var(--card-white);
-      border-radius: 24px;
-      padding: 2rem 1.5rem;
-      text-align: center;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 75, 114, 0.15);
-    }
-
-    .handwritten {
-      font-family: 'Caveat', cursive;
-      font-size: 2.8rem;
-      color: var(--accent-rose);
-      line-height: 1.1;
-      margin-bottom: 0.5rem;
-    }
-
-    .sub-title {
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      line-height: 1.5;
-    }
-
-    .note-card {
-      background: var(--soft-pink);
-      border-radius: 20px;
-      padding: 1.5rem;
-      border: 2px dashed var(--accent-rose);
-      text-align: center;
-    }
-
-    .note-text {
-      font-size: 1.05rem;
-      color: var(--text-dark);
-      line-height: 1.6;
-      margin-bottom: 1.2rem;
-      min-height: 70px;
-      display: flex;
-      align-items: center;
       justify-content: center;
-      transition: opacity 0.2s ease;
+      align-items: center;
+      transition: all 0.4s ease;
+    }
+
+    h1, h2 {
+      font-family: 'Dancing Script', cursive;
+      color: #d81b60;
+      font-size: 2.4rem;
+      margin-bottom: 15px;
+    }
+
+    p {
+      color: #ad1457;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .sticker {
+      width: 130px;
+      height: 130px;
+      object-fit: contain;
+      margin: 10px 0;
+      animation: bounce 2s infinite ease-in-out;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
+      margin-top: 15px;
     }
 
     .btn {
-      background: linear-gradient(135deg, var(--accent-rose), var(--deep-rose));
+      background-color: #ff80ab;
       color: white;
-      border: none;
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
-      font-weight: 600;
-      font-size: 0.9rem;
+      border: 2px solid #d81b60;
+      padding: 10px 24px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      border-radius: 20px;
       cursor: pointer;
-      box-shadow: 0 4px 15px rgba(255, 75, 114, 0.3);
-      transition: transform 0.2s ease, opacity 0.2s ease;
+      box-shadow: 0 4px 0 #c2185b;
+      transition: all 0.1s ease;
+      font-family: 'Quicksand', sans-serif;
     }
 
     .btn:hover {
-      transform: translateY(-2deg);
-      opacity: 0.95;
+      background-color: #ff4081;
+      transform: translateY(-2px);
     }
 
-    .action-card {
-      background: var(--card-white);
-      border-radius: 24px;
-      padding: 1.8rem 1.5rem;
-      text-align: center;
-      box-shadow: var(--shadow);
-      border: 1px solid rgba(255, 75, 114, 0.15);
+    .btn:active {
+      transform: translateY(2px);
+      box-shadow: 0 2px 0 #c2185b;
     }
 
-    .action-title {
-      font-size: 1.1rem;
-      font-weight: 700;
-      margin-bottom: 1rem;
+    /* Envelope Grid */
+    .envelope-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 15px;
+      width: 100%;
+      margin-top: 10px;
     }
 
-    .button-group {
+    .envelope-card {
+      background: #ff80ab;
+      color: white;
+      padding: 18px 10px;
+      border-radius: 16px;
+      border: 2px solid #c2185b;
+      cursor: pointer;
+      font-weight: bold;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: transform 0.2s, background 0.2s;
       display: flex;
-      justify-content: center;
-      gap: 1rem;
-      position: relative;
-      min-height: 50px;
+      flex-direction: column;
+      align-items: center;
+      gap: 5px;
     }
 
-    .btn-yes {
-      background: var(--accent-rose);
-      z-index: 2;
+    .envelope-card:hover {
+      transform: scale(1.05);
+      background: #ff4081;
     }
 
-    .btn-no {
-      background: #e0d6d9;
-      color: var(--text-dark);
-      position: absolute;
-      transition: all 0.2s ease;
+    .env-icon {
+      font-size: 1.8rem;
     }
 
-    .success-overlay {
-      display: none;
-      text-align: center;
-      padding: 1rem;
+    .hidden {
+      display: none !important;
     }
 
-    .success-overlay h2 {
-      font-family: 'Caveat', cursive;
-      font-size: 3rem;
-      color: var(--accent-rose);
+    .back-btn {
+      margin-top: 20px;
+      background: #ab47bc;
+      border-color: #7b1fa2;
+      box-shadow: 0 4px 0 #7b1fa2;
     }
   </style>
 </head>
 <body>
 
-  <div class="heart-bg" id="heartBg"></div>
+  <!-- Background Animated Hearts -->
+  <div id="hearts-container"></div>
 
-  <div class="wrapper">
-    <!-- Header -->
-    <div class="header-card">
-      <div class="handwritten">Hey Laiba... 🥺</div>
-      <p class="sub-title">I hate seeing you upset. Wahib built this little page just to bring a big smile back to your face!</p>
+  <!-- Main Display Card -->
+  <div class="card-container">
+
+    <!-- Screen 1 -->
+    <div id="screen1">
+      <h1>I made something for you... 💖</h1>
+      <img class="sticker" src="https://media.tenor.com/gU2wWVPiLocAAAAC/milk-and-mocha-bear.gif" alt="Cute Bear">
+      <br>
+      <button class="btn" onclick="nextScreen(2)">What? 🥺</button>
     </div>
 
-    <!-- Note Carousel -->
-    <div class="note-card">
-      <div class="note-text" id="reasonText">Click the button below for a note from Wahib... ✨</div>
-      <button class="btn" onclick="nextReason()">Tap for Love ❤️</button>
-    </div>
-
-    <!-- Interactive Forgiveness Box -->
-    <div class="action-card" id="questionCard">
-      <div class="action-title">Will you give Wahib a smile now? 😊</div>
-      <div class="button-group">
-        <button class="btn btn-yes" onclick="showForgiven()">Yes, of course! 💕</button>
-        <button class="btn btn-no" id="noBtn" onmouseover="moveButton()" onclick="moveButton()">Still mad 😤</button>
+    <!-- Screen 2 -->
+    <div id="screen2" class="hidden">
+      <h1>Will you see it, Laiba? 🌹</h1>
+      <img class="sticker" src="https://media.tenor.com/efb2FkWqK7AAAAAC/milk-and-mocha-hug.gif" alt="Bears Hugging">
+      <div class="btn-group">
+        <button class="btn" onclick="nextScreen(4)">Yes! 🥰</button>
+        <button class="btn" onclick="nextScreen(3)">No 😜</button>
       </div>
     </div>
 
-    <!-- Success Container -->
-    <div class="action-card success-overlay" id="successCard">
-      <h2>Yay! 💖</h2>
-      <p style="margin-top: 0.5rem; color: var(--text-muted);">You just made Wahib's whole day better. Sending you the biggest hug ever!</p>
+    <!-- Screen 3 (Playful Reject) -->
+    <div id="screen3" class="hidden">
+      <h1>Please say yes! 🥺👉👈</h1>
+      <img class="sticker" src="https://media.tenor.com/T0bS1w4v8aAAAAAC/milk-and-mocha-sad.gif" alt="Sad Bear">
+      <br>
+      <button class="btn" onclick="nextScreen(4)">Fine, show me! 💕</button>
     </div>
+
+    <!-- Screen 4 (Surprise Ready) -->
+    <div id="screen4" class="hidden">
+      <h1>Yay! Are you ready for your surprise? ✨</h1>
+      <img class="sticker" src="https://media.tenor.com/2XyvS8pZ3kAAAAAC/milk-and-mocha-bear-dance.gif" alt="Happy Bear">
+      <br>
+      <button class="btn" onclick="nextScreen(5)">YESSS!! 🎉</button>
+    </div>
+
+    <!-- Screen 5 (Open When Envelopes Grid) -->
+    <div id="screen5" class="hidden">
+      <h2>Open When... ✉️</h2>
+      <p style="font-size:0.95rem; margin-bottom:12px;">Pick one depending on how you're feeling right now ❤️</p>
+      
+      <div class="envelope-grid">
+        <div class="envelope-card" onclick="openNote('miss')">
+          <span class="env-icon">💌</span>
+          <span>You Miss Me</span>
+        </div>
+        <div class="envelope-card" onclick="openNote('sad')">
+          <span class="env-icon">🌧️</span>
+          <span>You're Sad</span>
+        </div>
+        <div class="envelope-card" onclick="openNote('happy')">
+          <span class="env-icon">☀️</span>
+          <span>You're Happy</span>
+        </div>
+        <div class="envelope-card" onclick="openNote('hug')">
+          <span class="env-icon">🤗</span>
+          <span>You Need a Hug</span>
+        </div>
+        <div class="envelope-card" onclick="openNote('fight')" style="grid-column: span 2;">
+          <span class="env-icon">😠</span>
+          <span>We Argue or Fight</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Note Viewer Screen -->
+    <div id="noteScreen" class="hidden">
+      <h2 id="noteTitle">Note Title</h2>
+      <img id="noteSticker" class="sticker" src="" alt="Sticker">
+      <p id="noteText">Note Content Goes Here...</p>
+      <button class="btn back-btn" onclick="nextScreen(5)">← Back to Envelopes</button>
+    </div>
+
   </div>
 
   <script>
-    const reasons = [
-      "Your smile is literally Wahib's favorite thing in the world. 😊",
-      "Whatever went wrong, Wahib is here to fix it with you. 🤝",
-      "You're way too special to stay sad for long, Laiba. ❤️",
-      "Wahib promises to always try his best to make you happy. 🌸",
-      "You mean everything to Wahib. Always. ✨"
-    ];
-
-    let currentReason = 0;
-
-    function nextReason() {
-      const textElem = document.getElementById('reasonText');
-      textElem.style.opacity = 0;
-      setTimeout(() => {
-        textElem.innerText = reasons[currentReason];
-        textElem.style.opacity = 1;
-        currentReason = (currentReason + 1) % reasons.length;
-      }, 200);
+    // Screen Switcher Logic
+    function nextScreen(screenNumber) {
+      document.querySelectorAll('.card-container > div').forEach(div => {
+        div.classList.add('hidden');
+      });
+      document.getElementById('screen' + screenNumber).classList.remove('hidden');
     }
 
-    function moveButton() {
-      const btn = document.getElementById('noBtn');
-      const x = Math.random() * (window.innerWidth < 400 ? 120 : 200) - 100;
-      const y = Math.random() * 80 - 40;
-      btn.style.transform = `translate(${x}px, ${y}px)`;
-    }
-
-    function showForgiven() {
-      document.getElementById('questionCard').style.display = 'none';
-      document.getElementById('successCard').style.display = 'block';
-      createHeartExplosion();
-    }
-
-    function createHearts() {
-      const container = document.getElementById('heartBg');
-      const heartIcons = ['🌸', '💖', '✨', '💕', '🌷'];
-      
-      for (let i = 0; i < 15; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'floating-heart';
-        heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
-        heart.style.animationDelay = Math.random() * 5 + 's';
-        container.appendChild(heart);
+    // Notes Data (From Wahib to Laiba)
+    const notes = {
+      miss: {
+        title: "Open When You Miss Me 💌",
+        sticker: "https://media.tenor.com/efb2FkWqK7AAAAAC/milk-and-mocha-hug.gif",
+        text: "Hey my love Laiba, if you're reading this, I'm probably missing you twice as much right now. Close your eyes for a second, hold your own hand, and imagine me right there teasing you and making you smile. Distance is temporary, but how much I love you isn't. I'm always right here with you — Wahib."
+      },
+      sad: {
+        title: "Open When You're Sad 🌧️",
+        sticker: "https://media.tenor.com/T0bS1w4v8aAAAAAC/milk-and-mocha-sad.gif",
+        text: "Hey pretty girl, take a deep breath. Whatever is troubling you right now will pass, I promise. You are so strong, so talented, and so deeply precious to me. I wish I could wrap you up in a giant warm hug right now. Smile for me, Laiba? I love you!"
+      },
+      happy: {
+        title: "Open When You're Happy ☀️",
+        sticker: "https://media.tenor.com/2XyvS8pZ3kAAAAAC/milk-and-mocha-bear-dance.gif",
+        text: "Seeing you happy is literally my favorite thing in the whole world! Keep shining bright, my star. Save a little bit of that big beautiful smile for me when we talk next. Love you endlessly!"
+      },
+      hug: {
+        title: "Open When You Need a Hug 🤗",
+        sticker: "https://media.tenor.com/gU2wWVPiLocAAAAC/milk-and-mocha-bear.gif",
+        text: "Consider this note a tight, 10-second hug from Wahib. Squeeze a pillow, wrap your arms around yourself, and feel how much warmth I am sending your way. You are never alone, Laiba."
+      },
+      fight: {
+        title: "Open When We Fight 😠",
+        sticker: "https://media.tenor.com/gU2wWVPiLocAAAAC/milk-and-mocha-bear.gif",
+        text: "Even if we disagree or get mad at each other, remember one thing: it is always US vs the problem, never me vs you. I care about you way too much to let a small misunderstanding stand between us. I'm sorry if I made you upset, Laiba. I love you."
       }
+    };
+
+    function openNote(type) {
+      document.querySelectorAll('.card-container > div').forEach(div => {
+        div.classList.add('hidden');
+      });
+
+      const note = notes[type];
+      document.getElementById('noteTitle').innerText = note.title;
+      document.getElementById('noteSticker').src = note.sticker;
+      document.getElementById('noteText').innerText = note.text;
+
+      document.getElementById('noteScreen').classList.remove('hidden');
     }
 
-    function createHeartExplosion() {
-      const container = document.getElementById('heartBg');
-      for (let i = 0; i < 25; i++) {
+    // Generate Floating Background Hearts
+    function createHearts() {
+      const container = document.getElementById('hearts-container');
+      const heartSymbols = ['💖', '🌸', '✨', '💕', '💗'];
+      for (let i = 0; i < 18; i++) {
         const heart = document.createElement('div');
-        heart.className = 'floating-heart';
-        heart.innerText = '💖';
+        heart.className = 'bg-heart';
+        heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
         heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+        heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+        heart.style.animationDelay = (Math.random() * 5) + 's';
         container.appendChild(heart);
       }
     }
