@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>From Wahib to Laiba ❤️</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    :root {
+      --bg-cream: #fffafb;
+      --soft-pink: #fde8ed;
+      --card-white: #ffffff;
+      --accent-rose: #ff4b72;
+      --deep-rose: #e62e5c;
+      --text-dark: #2d2326;
+      --text-muted: #7d6e73;
+      --shadow: 0 10px 30px rgba(255, 75, 114, 0.12);
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Plus Jakarta Sans', sans-serif; }
+
+    body {
+      background-color: var(--bg-cream);
+      color: var(--text-dark);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Floating Background */
+    .heart-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .floating-heart {
+      position: absolute;
+      bottom: -100px;
+      font-size: 1.5rem;
+      opacity: 0.6;
+      animation: floatUp 8s linear infinite;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) rotate(0deg); opacity: 0.6; }
+      100% { transform: translateY(-110vh) rotate(360deg); opacity: 0; }
+    }
+
+    /* Main Card Layout */
+    .wrapper {
+      position: relative;
+      z-index: 10;
+      width: 100%;
+      max-width: 480px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .header-card {
+      background: var(--card-white);
+      border-radius: 24px;
+      padding: 2rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 75, 114, 0.15);
+    }
+
+    .handwritten {
+      font-family: 'Caveat', cursive;
+      font-size: 2.8rem;
+      color: var(--accent-rose);
+      line-height: 1.1;
+      margin-bottom: 0.5rem;
+    }
+
+    .sub-title {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      line-height: 1.5;
+    }
+
+    .note-card {
+      background: var(--soft-pink);
+      border-radius: 20px;
+      padding: 1.5rem;
+      border: 2px dashed var(--accent-rose);
+      text-align: center;
+    }
+
+    .note-text {
+      font-size: 1.05rem;
+      color: var(--text-dark);
+      line-height: 1.6;
+      margin-bottom: 1.2rem;
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.2s ease;
+    }
+
+    .btn {
+      background: linear-gradient(135deg, var(--accent-rose), var(--deep-rose));
+      color: white;
+      border: none;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      box-shadow: 0 4px 15px rgba(255, 75, 114, 0.3);
+      transition: transform 0.2s ease, opacity 0.2s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-2deg);
+      opacity: 0.95;
+    }
+
+    .action-card {
+      background: var(--card-white);
+      border-radius: 24px;
+      padding: 1.8rem 1.5rem;
+      text-align: center;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255, 75, 114, 0.15);
+    }
+
+    .action-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      position: relative;
+      min-height: 50px;
+    }
+
+    .btn-yes {
+      background: var(--accent-rose);
+      z-index: 2;
+    }
+
+    .btn-no {
+      background: #e0d6d9;
+      color: var(--text-dark);
+      position: absolute;
+      transition: all 0.2s ease;
+    }
+
+    .success-overlay {
+      display: none;
+      text-align: center;
+      padding: 1rem;
+    }
+
+    .success-overlay h2 {
+      font-family: 'Caveat', cursive;
+      font-size: 3rem;
+      color: var(--accent-rose);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="heart-bg" id="heartBg"></div>
+
+  <div class="wrapper">
+    <!-- Header -->
+    <div class="header-card">
+      <div class="handwritten">Hey Laiba... 🥺</div>
+      <p class="sub-title">I hate seeing you upset. Wahib built this little page just to bring a big smile back to your face!</p>
+    </div>
+
+    <!-- Note Carousel -->
+    <div class="note-card">
+      <div class="note-text" id="reasonText">Click the button below for a note from Wahib... ✨</div>
+      <button class="btn" onclick="nextReason()">Tap for Love ❤️</button>
+    </div>
+
+    <!-- Interactive Forgiveness Box -->
+    <div class="action-card" id="questionCard">
+      <div class="action-title">Will you give Wahib a smile now? 😊</div>
+      <div class="button-group">
+        <button class="btn btn-yes" onclick="showForgiven()">Yes, of course! 💕</button>
+        <button class="btn btn-no" id="noBtn" onmouseover="moveButton()" onclick="moveButton()">Still mad 😤</button>
+      </div>
+    </div>
+
+    <!-- Success Container -->
+    <div class="action-card success-overlay" id="successCard">
+      <h2>Yay! 💖</h2>
+      <p style="margin-top: 0.5rem; color: var(--text-muted);">You just made Wahib's whole day better. Sending you the biggest hug ever!</p>
+    </div>
+  </div>
+
+  <script>
+    const reasons = [
+      "Your smile is literally Wahib's favorite thing in the world. 😊",
+      "Whatever went wrong, Wahib is here to fix it with you. 🤝",
+      "You're way too special to stay sad for long, Laiba. ❤️",
+      "Wahib promises to always try his best to make you happy. 🌸",
+      "You mean everything to Wahib. Always. ✨"
+    ];
+
+    let currentReason = 0;
+
+    function nextReason() {
+      const textElem = document.getElementById('reasonText');
+      textElem.style.opacity = 0;
+      setTimeout(() => {
+        textElem.innerText = reasons[currentReason];
+        textElem.style.opacity = 1;
+        currentReason = (currentReason + 1) % reasons.length;
+      }, 200);
+    }
+
+    function moveButton() {
+      const btn = document.getElementById('noBtn');
+      const x = Math.random() * (window.innerWidth < 400 ? 120 : 200) - 100;
+      const y = Math.random() * 80 - 40;
+      btn.style.transform = `translate(${x}px, ${y}px)`;
+    }
+
+    function showForgiven() {
+      document.getElementById('questionCard').style.display = 'none';
+      document.getElementById('successCard').style.display = 'block';
+      createHeartExplosion();
+    }
+
+    function createHearts() {
+      const container = document.getElementById('heartBg');
+      const heartIcons = ['🌸', '💖', '✨', '💕', '🌷'];
+      
+      for (let i = 0; i < 15; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.innerText = heartIcons[Math.floor(Math.random() * heartIcons.length)];
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 4 + 5) + 's';
+        heart.style.animationDelay = Math.random() * 5 + 's';
+        container.appendChild(heart);
+      }
+    }
+
+    function createHeartExplosion() {
+      const container = document.getElementById('heartBg');
+      for (let i = 0; i < 25; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'floating-heart';
+        heart.innerText = '💖';
+        heart.style.left = Math.random() * 100 + 'vw';
+        heart.style.animationDuration = (Math.random() * 2 + 3) + 's';
+        container.appendChild(heart);
+      }
+    }
+
+    createHearts();
+  </script>
+</body>
+</html>
