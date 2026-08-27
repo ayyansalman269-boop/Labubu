@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>For Laiba Rizwan 💖</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>A Little Something For You</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@500;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
 
     * {
       box-sizing: border-box;
@@ -14,307 +14,381 @@
     }
 
     body {
-      background-color: #fce4ec;
-      background-image: radial-gradient(#f8bbd0 15%, transparent 16%), radial-gradient(#f8bbd0 15%, transparent 16%);
-      background-size: 60px 60px;
-      background-position: 0 0, 30px 30px;
-      font-family: 'Quicksand', sans-serif;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow: hidden;
-      position: relative;
+      font-family: 'Poppins', sans-serif;
+      background-color: #7b0d1e;
+      color: #ffffff;
+      overflow-x: hidden;
     }
 
-    /* Floating background hearts */
-    .bg-heart {
-      position: absolute;
-      color: #ff80ab;
-      font-size: 20px;
-      animation: floatUp 6s linear infinite;
-      opacity: 0.6;
-      pointer-events: none;
-    }
-
-    @keyframes floatUp {
-      0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
-      50% { opacity: 0.7; }
-      100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
-    }
-
-    /* Main Container Card */
-    .card-container {
-      background: #fff0f5;
-      border: 4px dashed #ffb6c1;
-      border-radius: 24px;
-      padding: 30px;
-      width: 90%;
-      max-width: 550px;
-      box-shadow: 0 10px 25px rgba(255, 105, 180, 0.2);
-      text-align: center;
-      position: relative;
-      z-index: 10;
-      min-height: 380px;
+    /* Passcode Screen */
+    #lock-screen {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: #f4f0ec;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transition: all 0.4s ease;
+      z-index: 1000;
+      transition: opacity 0.8s ease, visibility 0.8s;
     }
 
-    h1, h2 {
-      font-family: 'Dancing Script', cursive;
-      color: #d81b60;
-      font-size: 2.4rem;
-      margin-bottom: 15px;
+    .heart-icon {
+      color: #e63946;
+      font-size: 40px;
+      margin-bottom: 25px;
     }
 
-    p {
-      color: #ad1457;
-      font-size: 1.1rem;
-      line-height: 1.6;
-      margin-bottom: 20px;
-    }
-
-    .sticker {
-      width: 130px;
-      height: 130px;
-      object-fit: contain;
-      margin: 10px 0;
-      animation: bounce 2s infinite ease-in-out;
-    }
-
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    .btn-group {
+    .dots-container {
       display: flex;
-      gap: 15px;
-      justify-content: center;
-      margin-top: 15px;
+      gap: 12px;
+      margin-bottom: 35px;
     }
 
-    .btn {
-      background-color: #ff80ab;
-      color: white;
-      border: 2px solid #d81b60;
-      padding: 10px 24px;
-      font-size: 1.1rem;
-      font-weight: bold;
-      border-radius: 20px;
-      cursor: pointer;
-      box-shadow: 0 4px 0 #c2185b;
-      transition: all 0.1s ease;
-      font-family: 'Quicksand', sans-serif;
+    .dot {
+      width: 12px;
+      height: 12px;
+      border: 2px solid #ccc;
+      border-radius: 50%;
+      transition: background-color 0.2s, border-color 0.2s;
     }
 
-    .btn:hover {
-      background-color: #ff4081;
-      transform: translateY(-2px);
+    .dot.filled {
+      background-color: #e63946;
+      border-color: #e63946;
     }
 
-    .btn:active {
-      transform: translateY(2px);
-      box-shadow: 0 2px 0 #c2185b;
-    }
-
-    /* Envelope Grid */
-    .envelope-grid {
+    .keypad {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 15px;
-      width: 100%;
-      margin-top: 10px;
+      grid-template-columns: repeat(3, 70px);
+      gap: 20px;
     }
 
-    .envelope-card {
-      background: #ff80ab;
-      color: white;
-      padding: 18px 10px;
-      border-radius: 16px;
-      border: 2px solid #c2185b;
+    .key {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      background: #ffffff;
+      border: 1px solid #eaeaea;
+      color: #333333;
+      font-size: 22px;
+      font-weight: 500;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       cursor: pointer;
-      font-weight: bold;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      transition: transform 0.2s, background 0.2s;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      user-select: none;
+      transition: background 0.15s;
+    }
+
+    .key:active {
+      background: #eeeeee;
+    }
+
+    .key.action {
+      font-size: 16px;
+      color: #e63946;
+    }
+
+    /* Main Content */
+    #main-content {
+      display: none;
+      opacity: 0;
+      transition: opacity 1s ease;
+    }
+
+    .section {
+      min-height: 100vh;
+      width: 100%;
+      padding: 60px 20px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 5px;
+      justify-content: center;
+      position: relative;
     }
 
-    .envelope-card:hover {
-      transform: scale(1.05);
-      background: #ff4081;
+    /* Section 1: Polaroid Collage */
+    .collage-section {
+      background-color: #8b0000;
+      overflow: hidden;
     }
 
-    .env-icon {
-      font-size: 1.8rem;
+    .script-heading {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3.5rem;
+      text-align: center;
+      z-index: 10;
+      margin-bottom: 40px;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
     }
 
-    .hidden {
-      display: none !important;
+    .polaroid-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      max-width: 1100px;
+      z-index: 5;
     }
 
-    .back-btn {
-      margin-top: 20px;
-      background: #ab47bc;
-      border-color: #7b1fa2;
-      box-shadow: 0 4px 0 #7b1fa2;
+    .polaroid {
+      background: #ffffff;
+      padding: 12px 12px 45px 12px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      transform: rotate(calc(var(--r, 0) * 1deg));
+      transition: transform 0.3s ease;
+      width: 200px;
+    }
+
+    .polaroid:hover {
+      transform: scale(1.08) rotate(0deg);
+      z-index: 20;
+    }
+
+    .polaroid img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+    }
+
+    /* Section 2: Songs */
+    .songs-section {
+      background-color: #6a040f;
+    }
+
+    .songs-section h2 {
+      font-family: 'Dancing Script', cursive;
+      font-size: 3rem;
+      margin-bottom: 5px;
+    }
+
+    .sub-heading {
+      font-size: 0.8rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 40px;
+    }
+
+    .songs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 900px;
+    }
+
+    .song-card {
+      background: #181818;
+      border-radius: 16px;
+      padding: 16px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      border: 1px solid #282828;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    }
+
+    .song-card img {
+      width: 60px;
+      height: 60px;
+      border-radius: 8px;
+      object-fit: cover;
+    }
+
+    .song-info {
+      flex: 1;
+    }
+
+    .song-title {
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    .song-artist {
+      font-size: 0.8rem;
+      color: #b3b3b3;
+    }
+
+    /* Section 3: Quote Background */
+    .quote-section {
+      background: radial-gradient(circle, #9d0208 0%, #370617 100%);
+      position: relative;
+    }
+
+    .heart-pattern {
+      position: absolute;
+      top: 0; left: 0; right: 0; bottom: 0;
+      opacity: 0.15;
+      background-image: radial-gradient(#ff4d6d 2px, transparent 2px);
+      background-size: 30px 30px;
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 20px;
+      font-size: 0.75rem;
+      letter-spacing: 2px;
+      opacity: 0.6;
     }
   </style>
 </head>
 <body>
 
-  <!-- Background Animated Hearts -->
-  <div id="hearts-container"></div>
+  <!-- Passcode Lock Screen -->
+  <div id="lock-screen">
+    <div class="heart-icon">♥</div>
+    <div class="dots-container">
+      <div class="dot" id="dot-0"></div>
+      <div class="dot" id="dot-1"></div>
+      <div class="dot" id="dot-2"></div>
+      <div class="dot" id="dot-3"></div>
+      <div class="dot" id="dot-4"></div>
+      <div class="dot" id="dot-5"></div>
+      <div class="dot" id="dot-6"></div>
+      <div class="dot" id="dot-7"></div>
+    </div>
+    <div class="keypad">
+      <div class="key" onclick="pressKey('1')">1</div>
+      <div class="key" onclick="pressKey('2')">2</div>
+      <div class="key" onclick="pressKey('3')">3</div>
+      <div class="key" onclick="pressKey('4')">4</div>
+      <div class="key" onclick="pressKey('5')">5</div>
+      <div class="key" onclick="pressKey('6')">6</div>
+      <div class="key" onclick="pressKey('7')">7</div>
+      <div class="key" onclick="pressKey('8')">8</div>
+      <div class="key" onclick="pressKey('9')">9</div>
+      <div class="key action" onclick="clearInput()">C</div>
+      <div class="key" onclick="pressKey('0')">0</div>
+      <div class="key action" onclick="deleteLast()">⌫</div>
+    </div>
+  </div>
 
-  <!-- Main Display Card -->
-  <div class="card-container">
-
-    <!-- Screen 1 -->
-    <div id="screen1">
-      <h1>I made something for you... 💖</h1>
-      <img class="sticker" src="https://media.tenor.com/gU2wWVPiLocAAAAC/milk-and-mocha-bear.gif" alt="Cute Bear">
-      <br>
-      <button class="btn" onclick="nextScreen(2)">What? 🥺</button>
+  <!-- Main Website Content -->
+  <div id="main-content">
+    
+    <!-- Section 1: Gallery -->
+    <div class="section collage-section">
+      <h1 class="script-heading">I love you so much, Laiba Rizwan</h1>
+      <div class="polaroid-container">
+        <!-- Update src values with your image paths -->
+        <div class="polaroid" style="--r: -6;"><img src="image1.jpg" alt="Memory"></div>
+        <div class="polaroid" style="--r: 4;"><img src="image2.jpg" alt="Memory"></div>
+        <div class="polaroid" style="--r: -3;"><img src="image3.jpg" alt="Memory"></div>
+        <div class="polaroid" style="--r: 7;"><img src="image4.jpg" alt="Memory"></div>
+        <div class="polaroid" style="--r: -5;"><img src="image5.jpg" alt="Memory"></div>
+        <div class="polaroid" style="--r: 3;"><img src="image6.jpg" alt="Memory"></div>
+      </div>
+      <div class="scroll-hint">SCROLL</div>
     </div>
 
-    <!-- Screen 2 -->
-    <div id="screen2" class="hidden">
-      <h1>Will you see it, Laiba? 🌹</h1>
-      <img class="sticker" src="https://media.tenor.com/efb2FkWqK7AAAAAC/milk-and-mocha-hug.gif" alt="Bears Hugging">
-      <div class="btn-group">
-        <button class="btn" onclick="nextScreen(4)">Yes! 🥰</button>
-        <button class="btn" onclick="nextScreen(3)">No 😜</button>
+    <!-- Section 2: Spotify Playlist -->
+    <div class="section songs-section">
+      <h2>Our Top Songs</h2>
+      <div class="sub-heading">THE SOUNDTRACK OF US</div>
+
+      <div class="songs-grid">
+        <div class="song-card">
+          <img src="https://i.scdn.co/image/ab67616d0000b273467f339178f7253457a151b6" alt="Iris">
+          <div class="song-info">
+            <div class="song-title">Iris</div>
+            <div class="song-artist">The Goo Goo Dolls</div>
+          </div>
+        </div>
+
+        <div class="song-card">
+          <img src="https://i.scdn.co/image/ab67616d0000b273398c8c764e528e19c9e83100" alt="She Will Be Loved">
+          <div class="song-info">
+            <div class="song-title">She Will Be Loved</div>
+            <div class="song-artist">Maroon 5</div>
+          </div>
+        </div>
+
+        <div class="song-card">
+          <img src="https://i.scdn.co/image/ab67616d0000b273a908a731ef8f4b04d168e370" alt="You're Beautiful">
+          <div class="song-info">
+            <div class="song-title">You're Beautiful</div>
+            <div class="song-artist">James Blunt</div>
+          </div>
+        </div>
+
+        <div class="song-card">
+          <img src="https://i.scdn.co/image/ab67616d0000b273617b0754859a8c62c96c4a8a" alt="I'm Yours">
+          <div class="song-info">
+            <div class="song-title">I'm Yours</div>
+            <div class="song-artist">Jason Mraz</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- Screen 3 (Playful Reject) -->
-    <div id="screen3" class="hidden">
-      <h1>Please say yes! 🥺👉👈</h1>
-      <img class="sticker" src="https://media.tenor.com/T0bS1w4v8aAAAAAC/milk-and-mocha-sad.gif" alt="Sad Bear">
-      <br>
-      <button class="btn" onclick="nextScreen(4)">Fine, show me! 💕</button>
-    </div>
-
-    <!-- Screen 4 (Surprise Ready) -->
-    <div id="screen4" class="hidden">
-      <h1>Yay! Are you ready for your surprise? ✨</h1>
-      <img class="sticker" src="https://media.tenor.com/2XyvS8pZ3kAAAAAC/milk-and-mocha-bear-dance.gif" alt="Happy Bear">
-      <br>
-      <button class="btn" onclick="nextScreen(5)">YESSS!! 🎉</button>
-    </div>
-
-    <!-- Screen 5 (Open When Envelopes Grid) -->
-    <div id="screen5" class="hidden">
-      <h2>Open When... ✉️</h2>
-      <p style="font-size:0.95rem; margin-bottom:12px;">Pick one depending on how you're feeling right now ❤️</p>
-      
-      <div class="envelope-grid">
-        <div class="envelope-card" onclick="openNote('miss')">
-          <span class="env-icon">💌</span>
-          <span>You Miss Me</span>
-        </div>
-        <div class="envelope-card" onclick="openNote('sad')">
-          <span class="env-icon">🌧️</span>
-          <span>You're Sad</span>
-        </div>
-        <div class="envelope-card" onclick="openNote('happy')">
-          <span class="env-icon">☀️</span>
-          <span>You're Happy</span>
-        </div>
-        <div class="envelope-card" onclick="openNote('hug')">
-          <span class="env-icon">🤗</span>
-          <span>You Need a Hug</span>
-        </div>
-        <div class="envelope-card" onclick="openNote('fight')" style="grid-column: span 2;">
-          <span class="env-icon">😠</span>
-          <span>We Argue or Fight</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- Note Viewer Screen -->
-    <div id="noteScreen" class="hidden">
-      <h2 id="noteTitle">Note Title</h2>
-      <img id="noteSticker" class="sticker" src="" alt="Sticker">
-      <p id="noteText">Note Content Goes Here...</p>
-      <button class="btn back-btn" onclick="nextScreen(5)">← Back to Envelopes</button>
+    <!-- Section 3: Quote Page -->
+    <div class="section quote-section">
+      <div class="heart-pattern"></div>
+      <h1 class="script-heading">I love you, to the moon and back.</h1>
     </div>
 
   </div>
 
   <script>
-    // Screen Switcher Logic
-    function nextScreen(screenNumber) {
-      document.querySelectorAll('.card-container > div').forEach(div => {
-        div.classList.add('hidden');
-      });
-      document.getElementById('screen' + screenNumber).classList.remove('hidden');
-    }
+    const CORRECT_PASSCODE = "17112009";
+    let currentInput = "";
 
-    // Notes Data (From Wahib to Laiba)
-    const notes = {
-      miss: {
-        title: "Open When You Miss Me 💌",
-        sticker: "https://media.tenor.com/efb2FkWqK7AAAAAC/milk-and-mocha-hug.gif",
-        text: "Hey my love Laiba, if you're reading this, I'm probably missing you twice as much right now. Close your eyes for a second, hold your own hand, and imagine me right there teasing you and making you smile. Distance is temporary, but how much I love you isn't. I'm always right here with you — Wahib."
-      },
-      sad: {
-        title: "Open When You're Sad 🌧️",
-        sticker: "https://media.tenor.com/T0bS1w4v8aAAAAAC/milk-and-mocha-sad.gif",
-        text: "Hey pretty girl, take a deep breath. Whatever is troubling you right now will pass, I promise. You are so strong, so talented, and so deeply precious to me. I wish I could wrap you up in a giant warm hug right now. Smile for me, Laiba? I love you!"
-      },
-      happy: {
-        title: "Open When You're Happy ☀️",
-        sticker: "https://media.tenor.com/2XyvS8pZ3kAAAAAC/milk-and-mocha-bear-dance.gif",
-        text: "Seeing you happy is literally my favorite thing in the whole world! Keep shining bright, my star. Save a little bit of that big beautiful smile for me when we talk next. Love you endlessly!"
-      },
-      hug: {
-        title: "Open When You Need a Hug 🤗",
-        sticker: "https://media.tenor.com/gU2wWVPiLocAAAAC/milk-and-mocha-bear.gif",
-        text: "Consider this note a tight, 10-second hug from Wahib. Squeeze a pillow, wrap your arms around yourself, and feel how much warmth I am sending your way. You are never alone, Laiba."
-      },
-      fight: {
-        title: "Open When We Fight 😠",
-        sticker: "https://media.tenor.com/gU2wWVPiLocAAAAC/milk-and-mocha-bear.gif",
-        text: "Even if we disagree or get mad at each other, remember one thing: it is always US vs the problem, never me vs you. I care about you way too much to let a small misunderstanding stand between us. I'm sorry if I made you upset, Laiba. I love you."
+    function pressKey(num) {
+      if (currentInput.length < 8) {
+        currentInput += num;
+        updateDots();
       }
-    };
-
-    function openNote(type) {
-      document.querySelectorAll('.card-container > div').forEach(div => {
-        div.classList.add('hidden');
-      });
-
-      const note = notes[type];
-      document.getElementById('noteTitle').innerText = note.title;
-      document.getElementById('noteSticker').src = note.sticker;
-      document.getElementById('noteText').innerText = note.text;
-
-      document.getElementById('noteScreen').classList.remove('hidden');
-    }
-
-    // Generate Floating Background Hearts
-    function createHearts() {
-      const container = document.getElementById('hearts-container');
-      const heartSymbols = ['💖', '🌸', '✨', '💕', '💗'];
-      for (let i = 0; i < 18; i++) {
-        const heart = document.createElement('div');
-        heart.className = 'bg-heart';
-        heart.innerText = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-        heart.style.left = Math.random() * 100 + 'vw';
-        heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
-        heart.style.animationDelay = (Math.random() * 5) + 's';
-        container.appendChild(heart);
+      if (currentInput.length === 8) {
+        setTimeout(checkPasscode, 200);
       }
     }
 
-    createHearts();
+    function clearInput() {
+      currentInput = "";
+      updateDots();
+    }
+
+    function deleteLast() {
+      currentInput = currentInput.slice(0, -1);
+      updateDots();
+    }
+
+    function updateDots() {
+      for (let i = 0; i < 8; i++) {
+        const dot = document.getElementById(`dot-${i}`);
+        if (i < currentInput.length) {
+          dot.classList.add('filled');
+        } else {
+          dot.classList.remove('filled');
+        }
+      }
+    }
+
+    function checkPasscode() {
+      if (currentInput === CORRECT_PASSCODE) {
+        const lockScreen = document.getElementById('lock-screen');
+        const mainContent = document.getElementById('main-content');
+        
+        lockScreen.style.opacity = '0';
+        setTimeout(() => {
+          lockScreen.style.display = 'none';
+          mainContent.style.display = 'block';
+          setTimeout(() => {
+            mainContent.style.opacity = '1';
+          }, 50);
+        }, 800);
+      } else {
+        alert("Incorrect passcode. Try her birthday!");
+        clearInput();
+      }
+    }
   </script>
 </body>
 </html>
