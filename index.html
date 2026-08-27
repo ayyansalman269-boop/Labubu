@@ -157,7 +157,7 @@
       object-fit: cover;
     }
 
-    /* Section 2: Songs */
+    /* Section 2: Spotify Embed Tracks */
     .songs-section {
       background-color: #6a040f;
     }
@@ -178,42 +178,10 @@
 
     .songs-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
       gap: 20px;
       width: 100%;
       max-width: 900px;
-    }
-
-    .song-card {
-      background: #181818;
-      border-radius: 16px;
-      padding: 16px;
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      border: 1px solid #282828;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.4);
-    }
-
-    .song-card img {
-      width: 60px;
-      height: 60px;
-      border-radius: 8px;
-      object-fit: cover;
-    }
-
-    .song-info {
-      flex: 1;
-    }
-
-    .song-title {
-      font-weight: 600;
-      font-size: 0.95rem;
-    }
-
-    .song-artist {
-      font-size: 0.8rem;
-      color: #b3b3b3;
     }
 
     /* Section 3: Quote Background */
@@ -277,54 +245,25 @@
     <div class="section collage-section">
       <h1 class="script-heading">I love you so much, Laiba Rizwan</h1>
       <div class="polaroid-container">
-        <!-- Update src values with your image paths -->
-        <div class="polaroid" style="--r: -6;"><img src="image1.jpg" alt="Memory"></div>
-        <div class="polaroid" style="--r: 4;"><img src="image2.jpg" alt="Memory"></div>
-        <div class="polaroid" style="--r: -3;"><img src="image3.jpg" alt="Memory"></div>
-        <div class="polaroid" style="--r: 7;"><img src="image4.jpg" alt="Memory"></div>
-        <div class="polaroid" style="--r: -5;"><img src="image5.jpg" alt="Memory"></div>
-        <div class="polaroid" style="--r: 3;"><img src="image6.jpg" alt="Memory"></div>
+        <div class="polaroid" style="--r: -6;"><img src="https://i.ibb.co/fGSyZ0Ym/IMG-6711.png" alt="Laiba Rizwan Memory 1"></div>
+        <div class="polaroid" style="--r: 4;"><img src="https://i.ibb.co/N6BY5WCj/IMG-6706.png" alt="Laiba Rizwan Memory 2"></div>
+        <div class="polaroid" style="--r: -3;"><img src="https://i.ibb.co/nMdDvPFb/IMG-6707.png" alt="Laiba Rizwan Memory 3"></div>
+        <div class="polaroid" style="--r: 7;"><img src="https://i.ibb.co/QvrBtYZn/IMG-6708.png" alt="Laiba Rizwan Memory 4"></div>
+        <div class="polaroid" style="--r: -5;"><img src="https://i.ibb.co/PKXKmbb/IMG-6709.png" alt="Laiba Rizwan Memory 5"></div>
       </div>
       <div class="scroll-hint">SCROLL</div>
     </div>
 
-    <!-- Section 2: Spotify Playlist -->
+    <!-- Section 2: Playable Spotify Playlist -->
     <div class="section songs-section">
       <h2>Our Top Songs</h2>
       <div class="sub-heading">THE SOUNDTRACK OF US</div>
 
       <div class="songs-grid">
-        <div class="song-card">
-          <img src="https://i.scdn.co/image/ab67616d0000b273467f339178f7253457a151b6" alt="Iris">
-          <div class="song-info">
-            <div class="song-title">Iris</div>
-            <div class="song-artist">The Goo Goo Dolls</div>
-          </div>
-        </div>
-
-        <div class="song-card">
-          <img src="https://i.scdn.co/image/ab67616d0000b273398c8c764e528e19c9e83100" alt="She Will Be Loved">
-          <div class="song-info">
-            <div class="song-title">She Will Be Loved</div>
-            <div class="song-artist">Maroon 5</div>
-          </div>
-        </div>
-
-        <div class="song-card">
-          <img src="https://i.scdn.co/image/ab67616d0000b273a908a731ef8f4b04d168e370" alt="You're Beautiful">
-          <div class="song-info">
-            <div class="song-title">You're Beautiful</div>
-            <div class="song-artist">James Blunt</div>
-          </div>
-        </div>
-
-        <div class="song-card">
-          <img src="https://i.scdn.co/image/ab67616d0000b273617b0754859a8c62c96c4a8a" alt="I'm Yours">
-          <div class="song-info">
-            <div class="song-title">I'm Yours</div>
-            <div class="song-artist">Jason Mraz</div>
-          </div>
-        </div>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5bHDGWyIFML1LYXZWTD5MF?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0c7pdqPHfy3XpUAN5RvksW?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0TK2YIli7K1leLovkQiNik?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2eqUVYJVnlDs8PgOtuOlJm?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
       </div>
     </div>
 
@@ -385,7 +324,7 @@
           }, 50);
         }, 800);
       } else {
-        alert("Incorrect passcode. Try her birthday!");
+        alert("Incorrect passcode!");
         clearInput();
       }
     }
