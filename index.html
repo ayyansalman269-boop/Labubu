@@ -50,22 +50,17 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    h1, h2 {
+    h2 {
       color: #9d174d;
-      font-size: 1.5rem;
+      font-size: 1.4rem;
       font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
-    p {
-      color: #be185d;
-      font-size: 1.1rem;
-    }
-
     .media-box {
-      width: 180px;
-      height: 180px;
+      width: 200px;
+      height: 200px;
       border-radius: 16px;
       overflow: hidden;
       display: flex;
@@ -92,7 +87,7 @@
       background-color: #ec4899;
       color: white;
       border: none;
-      padding: 12px 24px;
+      padding: 12px 28px;
       font-size: 1rem;
       font-weight: bold;
       border-radius: 50px;
@@ -144,8 +139,8 @@
         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5Zm4zbThpNmExb281ejB5YTF1a2k2cDlsdWdneXR3Y3k1cnp3dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lq0h93752f6J9tijrh/giphy.gif" alt="Surprise Box">
       </div>
       <div class="btn-group">
-        <button onclick="nextStep(3)">YES</button>
-        <button onclick="nextStep(2)">NO</button>
+        <button onclick="goToStep(3)">YES</button>
+        <button onclick="goToStep(2)">NO</button>
       </div>
     </div>
 
@@ -155,7 +150,7 @@
         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW5pNWN3MnQ4bnJpMm9mMDZsdXQ2bnN4YmxuN2RyaTRneXpxNGwzZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13CoXDiaCcCvg4/giphy.gif" alt="Angry Cat">
       </div>
       <div class="btn-group">
-        <button onclick="nextStep(3)">YES</button>
+        <button onclick="goToStep(3)">YES</button>
       </div>
     </div>
 
@@ -165,8 +160,8 @@
         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTR4dmsya2c5azNsa3ByYmd5OXcxenRqdmpwaXJqN3E1aTVneWg0NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K1tgb1IUeBOgw/giphy.gif" alt="Cute Shy Cat">
       </div>
       <div class="btn-group">
-        <button onclick="nextStep(4)">YES</button>
-        <button onclick="nextStep(4)">NO</button>
+        <button onclick="goToStep(4)">YES</button>
+        <button onclick="goToStep(4)">NO</button>
       </div>
     </div>
 
@@ -176,12 +171,54 @@
         <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcXlzcndicGllMnhrbjh1cHF5eHFzZHJtOTBxcTF0ZjJ0OXM3MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BzyTuYCmvSORGs1xM2/giphy.gif" alt="Smiling Cat">
       </div>
       <div class="btn-group">
-        <button onclick="nextStep(5)">YES</button>
-        <button onclick="nextStep(5)">Ofc YES</button>
+        <button onclick="goToStep(5)">YES</button>
+        <button onclick="goToStep(5)">Ofc YES</button>
       </div>
     </div>
 
     <div class="step" id="step-5">
       <h2>So Laiba... Will you be my girlfriend? 💖</h2>
       <div class="media-box">
-        <img src="
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzRmbmhwbmdsb2wxc3J2ZHMyMnplYW05OGhhdHlycjB3YmttOGtkciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif" alt="Begging Cat">
+      </div>
+      <div class="btn-group">
+        <button onclick="goToStep(6)">YES!</button>
+        <button id="runaway-btn" onmouseover="moveButton()">NO</button>
+      </div>
+    </div>
+
+    <div class="step" id="step-6">
+      <div class="heart-bg">❤️</div>
+      <h2>Yay! Official Now!</h2>
+      <div class="letter-card">
+        <p><strong>Dear Laiba,</strong></p>
+        <p>Every single day with you feels like a small celebration, but having you by my side makes everything magical.</p>
+        <p>Thank you for filling my life with warmth, laughter, and happiness. I admire your heart, your strength, and the wonderful way you light up every moment.</p>
+        <p><strong>With all my love,</strong><br>Always yours ❤️</p>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    function goToStep(stepNumber) {
+      const allSteps = document.querySelectorAll('.step');
+      allSteps.forEach(s => s.classList.remove('active'));
+      
+      const target = document.getElementById('step-' + stepNumber);
+      if (target) {
+        target.classList.add('active');
+      }
+    }
+
+    function moveButton() {
+      const btn = document.getElementById('runaway-btn');
+      const x = Math.floor(Math.random() * 160) - 80;
+      const y = Math.floor(Math.random() * 160) - 80;
+      btn.style.position = 'relative';
+      btn.style.left = x + 'px';
+      btn.style.top = y + 'px';
+    }
+  </script>
+</body>
+</html>
