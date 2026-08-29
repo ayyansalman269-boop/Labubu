@@ -3,331 +3,185 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Little Something For You</title>
+  <title>A Special Surprise for Laiba ❤️</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600;700&family=Poppins:wght@300;400;600&display=swap');
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     body {
-      font-family: 'Poppins', sans-serif;
-      background-color: #7b0d1e;
-      color: #ffffff;
+      background-color: #fbcfe8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
       overflow-x: hidden;
     }
 
-    /* Passcode Screen */
-    #lock-screen {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background-color: #f4f0ec;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      z-index: 1000;
-      transition: opacity 0.8s ease, visibility 0.8s;
-    }
-
-    .heart-icon {
-      color: #e63946;
-      font-size: 40px;
-      margin-bottom: 25px;
-    }
-
-    .dots-container {
-      display: flex;
-      gap: 12px;
-      margin-bottom: 35px;
-    }
-
-    .dot {
-      width: 12px;
-      height: 12px;
-      border: 2px solid #ccc;
-      border-radius: 50%;
-      transition: background-color 0.2s, border-color 0.2s;
-    }
-
-    .dot.filled {
-      background-color: #e63946;
-      border-color: #e63946;
-    }
-
-    .keypad {
-      display: grid;
-      grid-template-columns: repeat(3, 70px);
-      gap: 20px;
-    }
-
-    .key {
-      width: 70px;
-      height: 70px;
-      border-radius: 50%;
-      background: #ffffff;
-      border: 1px solid #eaeaea;
-      color: #333333;
-      font-size: 22px;
-      font-weight: 500;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-      user-select: none;
-      transition: background 0.15s;
-    }
-
-    .key:active {
-      background: #eeeeee;
-    }
-
-    .key.action {
-      font-size: 16px;
-      color: #e63946;
-    }
-
-    /* Main Content */
-    #main-content {
-      display: none;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    .section {
-      min-height: 100vh;
-      width: 100%;
-      padding: 60px 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
+    .card {
+      background: #fce7f3;
+      border: 3px solid #f472b6;
+      border-radius: 24px;
+      padding: 30px;
+      width: 90%;
+      max-width: 480px;
+      text-align: center;
+      box-shadow: 0 10px 25px rgba(236, 72, 153, 0.2);
       position: relative;
     }
 
-    /* Section 1: Polaroid Collage */
-    .collage-section {
-      background-color: #8b0000;
-      overflow: hidden;
+    .step {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+      animation: fadeIn 0.4s ease-in-out forwards;
     }
 
-    .script-heading {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3.5rem;
-      text-align: center;
-      z-index: 10;
-      margin-bottom: 40px;
-      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
-    }
-
-    .polaroid-container {
+    .step.active {
       display: flex;
-      flex-wrap: wrap;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    h1, h2 {
+      color: #9d174d;
+      font-size: 1.5rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    p {
+      color: #be185d;
+      font-size: 1.1rem;
+    }
+
+    .media-box {
+      width: 180px;
+      height: 180px;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
       justify-content: center;
       align-items: center;
-      gap: 25px;
-      max-width: 1100px;
-      z-index: 5;
+      background: #f472b6;
     }
 
-    .polaroid {
-      background: #ffffff;
-      padding: 12px 12px 45px 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-      transform: rotate(calc(var(--r, 0) * 1deg));
-      transition: transform 0.3s ease;
-      width: 200px;
-    }
-
-    .polaroid:hover {
-      transform: scale(1.08) rotate(0deg);
-      z-index: 20;
-    }
-
-    .polaroid img {
+    .media-box img {
       width: 100%;
-      height: 220px;
+      height: 100%;
       object-fit: cover;
     }
 
-    /* Section 2: Spotify Embed Tracks */
-    .songs-section {
-      background-color: #6a040f;
-    }
-
-    .songs-section h2 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3rem;
-      margin-bottom: 5px;
-    }
-
-    .sub-heading {
-      font-size: 0.8rem;
-      letter-spacing: 3px;
-      text-transform: uppercase;
-      opacity: 0.8;
-      margin-bottom: 40px;
-    }
-
-    .songs-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+    .btn-group {
+      display: flex;
+      gap: 15px;
+      justify-content: center;
       width: 100%;
-      max-width: 900px;
-    }
-
-    /* Section 3: Quote Background */
-    .quote-section {
-      background: radial-gradient(circle, #9d0208 0%, #370617 100%);
       position: relative;
     }
 
-    .heart-pattern {
-      position: absolute;
-      top: 0; left: 0; right: 0; bottom: 0;
-      opacity: 0.15;
-      background-image: radial-gradient(#ff4d6d 2px, transparent 2px);
-      background-size: 30px 30px;
+    button {
+      background-color: #ec4899;
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      font-size: 1rem;
+      font-weight: bold;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: transform 0.2s, background-color 0.2s;
+      box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
     }
 
-    .scroll-hint {
-      position: absolute;
-      bottom: 20px;
-      font-size: 0.75rem;
-      letter-spacing: 2px;
-      opacity: 0.6;
+    button:hover {
+      background-color: #db2777;
+      transform: scale(1.05);
+    }
+
+    .letter-card {
+      background: #fff;
+      border: 2px dashed #f472b6;
+      border-radius: 16px;
+      padding: 20px;
+      color: #831843;
+      text-align: left;
+      line-height: 1.6;
+      font-size: 0.95rem;
+    }
+
+    .letter-card p {
+      color: #831843;
+      margin-bottom: 10px;
+    }
+
+    .heart-bg {
+      font-size: 4rem;
+      color: #ec4899;
+      animation: pulse 1.2s infinite alternate;
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1); }
+      to { transform: scale(1.15); }
     }
   </style>
 </head>
 <body>
 
-  <!-- Passcode Lock Screen -->
-  <div id="lock-screen">
-    <div class="heart-icon">♥</div>
-    <div class="dots-container">
-      <div class="dot" id="dot-0"></div>
-      <div class="dot" id="dot-1"></div>
-      <div class="dot" id="dot-2"></div>
-      <div class="dot" id="dot-3"></div>
-      <div class="dot" id="dot-4"></div>
-      <div class="dot" id="dot-5"></div>
-      <div class="dot" id="dot-6"></div>
-      <div class="dot" id="dot-7"></div>
-    </div>
-    <div class="keypad">
-      <div class="key" onclick="pressKey('1')">1</div>
-      <div class="key" onclick="pressKey('2')">2</div>
-      <div class="key" onclick="pressKey('3')">3</div>
-      <div class="key" onclick="pressKey('4')">4</div>
-      <div class="key" onclick="pressKey('5')">5</div>
-      <div class="key" onclick="pressKey('6')">6</div>
-      <div class="key" onclick="pressKey('7')">7</div>
-      <div class="key" onclick="pressKey('8')">8</div>
-      <div class="key" onclick="pressKey('9')">9</div>
-      <div class="key action" onclick="clearInput()">C</div>
-      <div class="key" onclick="pressKey('0')">0</div>
-      <div class="key action" onclick="deleteLast()">⌫</div>
-    </div>
-  </div>
+  <div class="card">
 
-  <!-- Main Website Content -->
-  <div id="main-content">
-    
-    <!-- Section 1: Gallery -->
-    <div class="section collage-section">
-      <h1 class="script-heading">I love you so much, Laiba Rizwan</h1>
-      <div class="polaroid-container">
-        <div class="polaroid" style="--r: -6;"><img src="https://i.ibb.co/fGSyZ0Ym/IMG-6711.png" alt="Laiba Rizwan Memory 1"></div>
-        <div class="polaroid" style="--r: 4;"><img src="https://i.ibb.co/N6BY5WCj/IMG-6706.png" alt="Laiba Rizwan Memory 2"></div>
-        <div class="polaroid" style="--r: -3;"><img src="https://i.ibb.co/nMdDvPFb/IMG-6707.png" alt="Laiba Rizwan Memory 3"></div>
-        <div class="polaroid" style="--r: 7;"><img src="https://i.ibb.co/QvrBtYZn/IMG-6708.png" alt="Laiba Rizwan Memory 4"></div>
-        <div class="polaroid" style="--r: -5;"><img src="https://i.ibb.co/PKXKmbb/IMG-6709.png" alt="Laiba Rizwan Memory 5"></div>
+    <div class="step active" id="step-1">
+      <h2>Ready for a small surprise, Laiba?</h2>
+      <div class="media-box">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5Zm4zbThpNmExb281ejB5YTF1a2k2cDlsdWdneXR3Y3k1cnp3dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lq0h93752f6J9tijrh/giphy.gif" alt="Surprise Box">
       </div>
-      <div class="scroll-hint">SCROLL</div>
-    </div>
-
-    <!-- Section 2: Playable Spotify Playlist -->
-    <div class="section songs-section">
-      <h2>Our Top Songs</h2>
-      <div class="sub-heading">THE SOUNDTRACK OF US</div>
-
-      <div class="songs-grid">
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/5bHDGWyIFML1LYXZWTD5MF?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0c7pdqPHfy3XpUAN5RvksW?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/0TK2YIli7K1leLovkQiNik?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-        <iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/2eqUVYJVnlDs8PgOtuOlJm?utm_source=generator" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+      <div class="btn-group">
+        <button onclick="nextStep(3)">YES</button>
+        <button onclick="nextStep(2)">NO</button>
       </div>
     </div>
 
-    <!-- Section 3: Quote Page -->
-    <div class="section quote-section">
-      <div class="heart-pattern"></div>
-      <h1 class="script-heading">I love you, to the moon and back.</h1>
+    <div class="step" id="step-2">
+      <h2>How dare you! Click YES 😾</h2>
+      <div class="media-box">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW5pNWN3MnQ4bnJpMm9mMDZsdXQ2bnN4YmxuN2RyaTRneXpxNGwzZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13CoXDiaCcCvg4/giphy.gif" alt="Angry Cat">
+      </div>
+      <div class="btn-group">
+        <button onclick="nextStep(3)">YES</button>
+      </div>
     </div>
 
-  </div>
+    <div class="step" id="step-3">
+      <h2>Do you love me? 🥺</h2>
+      <div class="media-box">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTR4dmsya2c5azNsa3ByYmd5OXcxenRqdmpwaXJqN3E1aTVneWg0NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K1tgb1IUeBOgw/giphy.gif" alt="Cute Shy Cat">
+      </div>
+      <div class="btn-group">
+        <button onclick="nextStep(4)">YES</button>
+        <button onclick="nextStep(4)">NO</button>
+      </div>
+    </div>
 
-  <script>
-    const CORRECT_PASSCODE = "17112009";
-    let currentInput = "";
+    <div class="step" id="step-4">
+      <h2>Do you know, I love your smile? ✨</h2>
+      <div class="media-box">
+        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcXlzcndicGllMnhrbjh1cHF5eHFzZHJtOTBxcTF0ZjJ0OXM3MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BzyTuYCmvSORGs1xM2/giphy.gif" alt="Smiling Cat">
+      </div>
+      <div class="btn-group">
+        <button onclick="nextStep(5)">YES</button>
+        <button onclick="nextStep(5)">Ofc YES</button>
+      </div>
+    </div>
 
-    function pressKey(num) {
-      if (currentInput.length < 8) {
-        currentInput += num;
-        updateDots();
-      }
-      if (currentInput.length === 8) {
-        setTimeout(checkPasscode, 200);
-      }
-    }
-
-    function clearInput() {
-      currentInput = "";
-      updateDots();
-    }
-
-    function deleteLast() {
-      currentInput = currentInput.slice(0, -1);
-      updateDots();
-    }
-
-    function updateDots() {
-      for (let i = 0; i < 8; i++) {
-        const dot = document.getElementById(`dot-${i}`);
-        if (i < currentInput.length) {
-          dot.classList.add('filled');
-        } else {
-          dot.classList.remove('filled');
-        }
-      }
-    }
-
-    function checkPasscode() {
-      if (currentInput === CORRECT_PASSCODE) {
-        const lockScreen = document.getElementById('lock-screen');
-        const mainContent = document.getElementById('main-content');
-        
-        lockScreen.style.opacity = '0';
-        setTimeout(() => {
-          lockScreen.style.display = 'none';
-          mainContent.style.display = 'block';
-          setTimeout(() => {
-            mainContent.style.opacity = '1';
-          }, 50);
-        }, 800);
-      } else {
-        alert("Incorrect passcode!");
-        clearInput();
-      }
-    }
-  </script>
-</body>
-</html>
+    <div class="step" id="step-5">
+      <h2>So Laiba... Will you be my girlfriend? 💖</h2>
+      <div class="media-box">
+        <img src="
