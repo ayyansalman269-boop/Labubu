@@ -1,224 +1,460 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>A Special Surprise for Laiba ❤️</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uzair Dudh Wala | Fresh Dairy Products</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #0046B8;
+            --accent: #00E5FF;
+            --text-main: #FFFFFF;
+            --text-muted: #CBD5E1;
+            --card-glass: rgba(15, 23, 42, 0.75);
+            --border-glass: rgba(255, 255, 255, 0.18);
+        }
 
-    body {
-      background-color: #fbcfe8;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      overflow-x: hidden;
-    }
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Outfit', sans-serif;
+        }
 
-    .card {
-      background: #fce7f3;
-      border: 3px solid #f472b6;
-      border-radius: 24px;
-      padding: 30px;
-      width: 90%;
-      max-width: 480px;
-      text-align: center;
-      box-shadow: 0 10px 25px rgba(236, 72, 153, 0.2);
-      position: relative;
-    }
+        body {
+            color: var(--text-main);
+            overflow-x: hidden;
+            /* Main Background Image Setup */
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), 
+                        url('background.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
 
-    .step {
-      display: none;
-      flex-direction: column;
-      align-items: center;
-      gap: 20px;
-      animation: fadeIn 0.4s ease-in-out forwards;
-    }
+        /* Navbar */
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.2rem 8%;
+            background: rgba(15, 23, 42, 0.85);
+            backdrop-filter: blur(15px);
+            border-bottom: 1px solid var(--border-glass);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .step.active {
-      display: flex;
-    }
+        .brand-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #FFFFFF;
+            text-transform: uppercase;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
+        .brand-name i {
+            color: var(--accent);
+        }
 
-    h2 {
-      color: #9d174d;
-      font-size: 1.4rem;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-    }
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            align-items: center;
+        }
 
-    .media-box {
-      width: 200px;
-      height: 200px;
-      border-radius: 16px;
-      overflow: hidden;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: #f472b6;
-    }
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-muted);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
 
-    .media-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
+        .nav-links a:hover {
+            color: var(--accent);
+        }
 
-    .btn-group {
-      display: flex;
-      gap: 15px;
-      justify-content: center;
-      width: 100%;
-      position: relative;
-    }
+        .btn-cart {
+            background: var(--primary);
+            color: white;
+            padding: 0.7rem 1.5rem;
+            border-radius: 50px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            box-shadow: 0 10px 20px rgba(0, 102, 255, 0.3);
+            transition: all 0.3s ease;
+        }
 
-    button {
-      background-color: #ec4899;
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      font-size: 1rem;
-      font-weight: bold;
-      border-radius: 50px;
-      cursor: pointer;
-      transition: transform 0.2s, background-color 0.2s;
-      box-shadow: 0 4px 10px rgba(236, 72, 153, 0.3);
-    }
+        .btn-cart:hover {
+            background: var(--accent);
+            color: #000;
+            transform: translateY(-2px);
+        }
 
-    button:hover {
-      background-color: #db2777;
-      transform: scale(1.05);
-    }
+        /* Hero Section */
+        .hero {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+            padding: 3rem 8%;
+            align-items: center;
+            gap: 4rem;
+        }
 
-    .letter-card {
-      background: #fff;
-      border: 2px dashed #f472b6;
-      border-radius: 16px;
-      padding: 20px;
-      color: #831843;
-      text-align: left;
-      line-height: 1.6;
-      font-size: 0.95rem;
-    }
+        .hero-text h1 {
+            font-size: 3.5rem;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            font-weight: 800;
+        }
 
-    .letter-card p {
-      color: #831843;
-      margin-bottom: 10px;
-    }
+        .hero-text h1 span {
+            background: linear-gradient(135deg, #00E5FF, #60A5FA);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
 
-    .heart-bg {
-      font-size: 4rem;
-      color: #ec4899;
-      animation: pulse 1.2s infinite alternate;
-    }
+        .hero-text p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
 
-    @keyframes pulse {
-      from { transform: scale(1); }
-      to { transform: scale(1.15); }
-    }
-  </style>
+        /* 5D Interactive Animated Logo Stage */
+        .logo-stage {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            perspective: 1000px;
+        }
+
+        .logo-card-5d {
+            width: 340px;
+            height: 460px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(20px);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            transform-style: preserve-3d;
+            cursor: pointer;
+        }
+
+        .logo-glow-ring {
+            position: absolute;
+            width: 260px;
+            height: 260px;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent) 0%, var(--primary) 70%);
+            filter: blur(40px);
+            opacity: 0.5;
+            transform: translateZ(-40px);
+            animation: pulseGlow 4s infinite alternate ease-in-out;
+        }
+
+        .logo-img-container {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            transform: translateZ(60px);
+            position: relative;
+        }
+
+        .logo-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .logo-badge-3d {
+            position: absolute;
+            bottom: 30px;
+            background: rgba(15, 23, 42, 0.9);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            font-weight: 700;
+            color: #FFFFFF;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+            transform: translateZ(90px);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            border: 1px solid var(--accent);
+        }
+
+        /* Products Grid */
+        .products-section {
+            padding: 5rem 8%;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(10px);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 3rem;
+            font-family: 'Space Grotesk', sans-serif;
+            color: #FFFFFF;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .product-card {
+            background: var(--card-glass);
+            border-radius: 24px;
+            padding: 2rem;
+            border: 1px solid var(--border-glass);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            backdrop-filter: blur(12px);
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .product-card:hover {
+            transform: translateY(-8px);
+            border-color: var(--accent);
+        }
+
+        .badge-tag {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 229, 255, 0.2);
+            color: var(--accent);
+            border: 1px solid var(--accent);
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 0.75rem;
+        }
+
+        .product-card h3 {
+            font-size: 1.6rem;
+            margin-bottom: 0.5rem;
+            color: #FFFFFF;
+        }
+
+        .product-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .product-specs {
+            list-style: none;
+            margin: 1rem 0;
+        }
+
+        .product-specs li {
+            padding: 0.4rem 0;
+            color: var(--text-muted);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .product-specs i {
+            color: var(--accent);
+        }
+
+        .price-tag {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: #FFFFFF;
+            margin: 1rem 0;
+        }
+
+        .btn-order {
+            width: 100%;
+            padding: 0.9rem;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-order:hover {
+            background: var(--accent);
+            color: #000;
+        }
+
+        @keyframes pulseGlow {
+            0% { transform: translateZ(-40px) scale(0.9); opacity: 0.3; }
+            100% { transform: translateZ(-40px) scale(1.15); opacity: 0.7; }
+        }
+
+        @media (max-width: 900px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+        }
+    </style>
 </head>
 <body>
 
-  <div class="card">
+    <nav>
+        <div class="brand-name">
+            <i class="fa-solid fa-cow"></i> Uzair Dudh Wala
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#products">Products</a></li>
+        </ul>
+        <button class="btn-cart"><i class="fa-solid fa-basket-shopping"></i> Order Fresh</button>
+    </nav>
 
-    <div class="step active" id="step-1">
-      <h2>Ready for a small surprise, Laiba?</h2>
-      <div class="media-box">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOHY5Zm4zbThpNmExb281ejB5YTF1a2k2cDlsdWdneXR3Y3k1cnp3dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/Lq0h93752f6J9tijrh/giphy.gif" alt="Surprise Box">
-      </div>
-      <div class="btn-group">
-        <button onclick="goToStep(3)">YES</button>
-        <button onclick="goToStep(2)">NO</button>
-      </div>
-    </div>
+    <section class="hero" id="home">
+        <div class="hero-text">
+            <h1>100% Pure & Fresh <span>Dairy Products</span></h1>
+            <p>Delivering unadulterated full cream milk, traditional dahi, fresh makhan, and authentic dairy products directly to your doorstep.</p>
+            <button class="btn-cart" style="padding: 1rem 2rem; font-size: 1.1rem;" onclick="document.getElementById('products').scrollIntoView();">
+                View All 5 Products <i class="fa-solid fa-arrow-right"></i>
+            </button>
+        </div>
 
-    <div class="step" id="step-2">
-      <h2>How dare you! Click YES 😾</h2>
-      <div class="media-box">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExdW5pNWN3MnQ4bnJpMm9mMDZsdXQ2bnN4YmxuN2RyaTRneXpxNGwzZCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/13CoXDiaCcCvg4/giphy.gif" alt="Angry Cat">
-      </div>
-      <div class="btn-group">
-        <button onclick="goToStep(3)">YES</button>
-      </div>
-    </div>
+        <div class="logo-stage">
+            <div class="logo-card-5d" id="tiltLogo" data-tilt data-tilt-max="25" data-tilt-speed="400" data-tilt-glare data-tilt-max-glare="0.4">
+                <div class="logo-glow-ring"></div>
 
-    <div class="step" id="step-3">
-      <h2>Do you love me? 🥺</h2>
-      <div class="media-box">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExOTR4dmsya2c5azNsa3ByYmd5OXcxenRqdmpwaXJqN3E1aTVneWg0NiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/K1tgb1IUeBOgw/giphy.gif" alt="Cute Shy Cat">
-      </div>
-      <div class="btn-group">
-        <button onclick="goToStep(4)">YES</button>
-        <button onclick="goToStep(4)">NO</button>
-      </div>
-    </div>
+                <div class="logo-img-container">
+                    <img src="background.jpg" alt="Uzair Dudh Wala Logo">
+                </div>
 
-    <div class="step" id="step-4">
-      <h2>Do you know, I love your smile? ✨</h2>
-      <div class="media-box">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExM3ZhcXlzcndicGllMnhrbjh1cHF5eHFzZHJtOTBxcTF0ZjJ0OXM3MSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BzyTuYCmvSORGs1xM2/giphy.gif" alt="Smiling Cat">
-      </div>
-      <div class="btn-group">
-        <button onclick="goToStep(5)">YES</button>
-        <button onclick="goToStep(5)">Ofc YES</button>
-      </div>
-    </div>
+                <div class="logo-badge-3d">
+                    <i class="fa-solid fa-circle-check" style="color:var(--accent);"></i>
+                    Uzair Dudh Wala
+                </div>
+            </div>
+        </div>
+    </section>
 
-    <div class="step" id="step-5">
-      <h2>So Laiba... Will you be my girlfriend? 💖</h2>
-      <div class="media-box">
-        <img src="https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExMzRmbmhwbmdsb2wxc3J2ZHMyMnplYW05OGhhdHlycjB3YmttOGtkciZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/c76IJLufpNwSULPk77/giphy.gif" alt="Begging Cat">
-      </div>
-      <div class="btn-group">
-        <button onclick="goToStep(6)">YES!</button>
-        <button id="runaway-btn" onmouseover="moveButton()">NO</button>
-      </div>
-    </div>
+    <section class="products-section" id="products">
+        <h2 class="section-title">Our Pure Dairy Lineup</h2>
+        <div class="product-grid">
 
-    <div class="step" id="step-6">
-      <div class="heart-bg">❤️</div>
-      <h2>Yay! Official Now!</h2>
-      <div class="letter-card">
-        <p><strong>Dear Laiba,</strong></p>
-        <p>Every single day with you feels like a small celebration, but having you by my side makes everything magical.</p>
-        <p>Thank you for filling my life with warmth, laughter, and happiness. I admire your heart, your strength, and the wonderful way you light up every moment.</p>
-        <p><strong>With all my love,</strong><br>Always yours ❤️</p>
-      </div>
-    </div>
+            <div class="product-card">
+                <div>
+                    <span class="badge-tag">High Fat 6.5%+</span>
+                    <h3>Full Cream Fat Milk</h3>
+                    <p>Unprocessed, non-homogenized pure milk with a thick natural cream layer.</p>
+                    <ul class="product-specs">
+                        <li><i class="fa-solid fa-check"></i> 100% Pure Organic</li>
+                        <li><i class="fa-solid fa-check"></i> Rich Thick Malai</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rs. 240 <span style="font-size:0.9rem; color: var(--text-muted);">/ Ltr</span></div>
+                    <button class="btn-order" onclick="alert('Full Cream Fat Milk Added!')">Order Now</button>
+                </div>
+            </div>
 
-  </div>
+            <div class="product-card">
+                <div>
+                    <span class="badge-tag">Traditional</span>
+                    <h3>Fresh Desi Dahi (Yogurt)</h3>
+                    <p>Naturally set thick yogurt with a creamy texture and sweet natural taste.</p>
+                    <ul class="product-specs">
+                        <li><i class="fa-solid fa-check"></i> No Added Chemicals</li>
+                        <li><i class="fa-solid fa-check"></i> Probiotic Rich</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rs. 280 <span style="font-size:0.9rem; color: var(--text-muted);">/ Kg</span></div>
+                    <button class="btn-order" onclick="alert('Fresh Dahi Added!')">Order Now</button>
+                </div>
+            </div>
 
-  <script>
-    function goToStep(stepNumber) {
-      const allSteps = document.querySelectorAll('.step');
-      allSteps.forEach(s => s.classList.remove('active'));
-      
-      const target = document.getElementById('step-' + stepNumber);
-      if (target) {
-        target.classList.add('active');
-      }
-    }
+            <div class="product-card">
+                <div>
+                    <span class="badge-tag">100% Organic</span>
+                    <h3>Desi White Makhan</h3>
+                    <p>Churned daily from fresh milk cream. Soft, un-salted, and rich in taste.</p>
+                    <ul class="product-specs">
+                        <li><i class="fa-solid fa-check"></i> Hand-churned Daily</li>
+                        <li><i class="fa-solid fa-check"></i> Pure Farm Cream</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rs. 700 <span style="font-size:0.9rem; color: var(--text-muted);">/ 500g</span></div>
+                    <button class="btn-order" onclick="alert('White Makhan Added!')">Order Now</button>
+                </div>
+            </div>
 
-    function moveButton() {
-      const btn = document.getElementById('runaway-btn');
-      const x = Math.floor(Math.random() * 160) - 80;
-      const y = Math.floor(Math.random() * 160) - 80;
-      btn.style.position = 'relative';
-      btn.style.left = x + 'px';
-      btn.style.top = y + 'px';
-    }
-  </script>
+            <div class="product-card">
+                <div>
+                    <span class="badge-tag">Pure Gold</span>
+                    <h3>Pure Desi Ghee</h3>
+                    <p>Aromatic clarified butter prepared using slow-cooked white butter.</p>
+                    <ul class="product-specs">
+                        <li><i class="fa-solid fa-check"></i> Rich Aroma & Flavor</li>
+                        <li><i class="fa-solid fa-check"></i> Zero Additives</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rs. 2,400 <span style="font-size:0.9rem; color: var(--text-muted);">/ Kg</span></div>
+                    <button class="btn-order" onclick="alert('Desi Ghee Added!')">Order Now</button>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <div>
+                    <span class="badge-tag">Fresh Batch</span>
+                    <h3>Special Khoya / Mawa</h3>
+                    <p>Slow-boiled reduced full cream milk, perfect for traditional desserts.</p>
+                    <ul class="product-specs">
+                        <li><i class="fa-solid fa-check"></i> 100% Milk Solid</li>
+                        <li><i class="fa-solid fa-check"></i> Sweetened / Unsweetened</li>
+                    </ul>
+                </div>
+                <div>
+                    <div class="price-tag">Rs. 1,100 <span style="font-size:0.9rem; color: var(--text-muted);">/ Kg</span></div>
+                    <button class="btn-order" onclick="alert('Special Khoya Added!')">Order Now</button>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <script>
+        VanillaTilt.init(document.querySelector("#tiltLogo"), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.5,
+            gyroscope: true
+        });
+    </script>
 </body>
 </html>
